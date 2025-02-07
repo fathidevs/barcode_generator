@@ -1,3 +1,4 @@
+import 'package:barcode_generator/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/ean13_generator_widget.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: const Center(
-          child: Ean13GeneratorWidget(),
+          child: HomePage(),
         ));
   }
 }
