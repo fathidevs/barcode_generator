@@ -31,11 +31,12 @@ class _NavbarState extends State<Navbar> {
             collapsedWidth: widget.collapsedWidth,
             expandedWidth: widget.expandedWidth,
             icon: const Icon(Icons.close),
-            lable: 'lable',
             navbarOpen: _open,
             onPressed: navbarStateChanger,
           ),
-          const Text('navbar'),
+          Column(
+            children: [],
+          ),
         ],
       ),
     );
