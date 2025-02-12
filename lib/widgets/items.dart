@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Lists {
+class Items {
   static Widget navbarItem({
     required Widget icon,
     required String lable,
@@ -23,6 +23,7 @@ class Lists {
         color: backgroundColor,
         child: AnimatedContainer(
           width: navbarOpen ? expandedWidth : collapsedWidth,
+          // width: navbarOpen ? expandedWidth : collapsedWidth,
           height: collapsedWidth,
           duration: duration,
           curve: curve,
@@ -33,7 +34,7 @@ class Lists {
                   alignment: Alignment.centerLeft,
                   children: [
                     AnimatedPositioned(
-                      left: navbarOpen ? collapsedWidth : 0.0,
+                      left: navbarOpen ? collapsedWidth + 10 : 0.0,
                       duration: duration,
                       curve: curve,
                       child: AnimatedOpacity(
@@ -48,7 +49,7 @@ class Lists {
                             lable,
                             // maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18.0, fontWeight: FontWeight.bold),
                           ),
                         ),

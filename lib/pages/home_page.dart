@@ -1,6 +1,7 @@
-import 'package:barcode_generator/widgets/ean13_generator_widget.dart';
+import 'package:barcode/barcode.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/generator_body_widget.dart';
 import '../widgets/navbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,10 +19,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Row(
         children: [
-          Navbar(
-            collapsedWidth: 60.0,
-            expandedWidth: width * .2,
-          )
+          Navbar(collapsedWidth: 60.0, expandedWidth: width * .15),
+          Expanded(
+              child: GeneratorBodyWidget(
+            barcodType: Barcode.fromType(BarcodeType.CodeEAN13),
+          )),
         ],
       ),
     );

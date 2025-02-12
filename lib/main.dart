@@ -1,7 +1,6 @@
-import 'package:barcode_generator/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/ean13_generator_widget.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
