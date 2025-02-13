@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'svg_icons.dart';
+
 class Items {
   static Widget navbarItem({
-    required Widget icon,
+    required String iconName,
     required String lable,
     required bool navbarOpen,
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
     required double expandedWidth,
     required double collapsedWidth,
     BorderRadius raduis = const BorderRadius.all(Radius.circular(300)),
-    double spacing = 15.0,
     Color backgroundColor = Colors.white,
+    Color shadowColor = Colors.black38,
     Duration duration = Durations.medium4,
     Curve curve = Curves.easeInOutCubic,
     double elevation = 5.0,
@@ -21,9 +23,10 @@ class Items {
       child: Card(
         elevation: elevation,
         color: backgroundColor,
+        shadowColor: shadowColor,
+        margin: EdgeInsets.zero,
         child: AnimatedContainer(
           width: navbarOpen ? expandedWidth : collapsedWidth,
-          // width: navbarOpen ? expandedWidth : collapsedWidth,
           height: collapsedWidth,
           duration: duration,
           curve: curve,
@@ -34,7 +37,7 @@ class Items {
                   alignment: Alignment.centerLeft,
                   children: [
                     AnimatedPositioned(
-                      left: navbarOpen ? collapsedWidth + 10 : 0.0,
+                      left: navbarOpen ? collapsedWidth + 0 : 0.0,
                       duration: duration,
                       curve: curve,
                       child: AnimatedOpacity(
@@ -55,18 +58,15 @@ class Items {
                         ),
                       ),
                     ),
-                    Positioned(
-                      left: 0.0,
-                      child: Card(
-                          elevation: 0.0,
-                          margin: EdgeInsets.zero,
-                          color: backgroundColor,
-                          child: SizedBox(
-                            width: collapsedWidth,
-                            height: collapsedWidth,
-                            child: icon,
-                          )),
-                    ),
+                    Card(
+                        elevation: 0.0,
+                        margin: EdgeInsets.zero,
+                        color: backgroundColor,
+                        child: SizedBox(
+                          width: collapsedWidth,
+                          height: collapsedWidth,
+                          child: Center(child: SvgIcons.fromAssets(iconName)),
+                        )),
                   ],
                 ),
               ),

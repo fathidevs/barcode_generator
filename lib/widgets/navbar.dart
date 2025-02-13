@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../tools/bg_consts.dart';
 import 'buttons.dart';
 import 'items.dart';
 
@@ -17,7 +18,7 @@ class Navbar extends StatefulWidget {
     this.backgroundColor = Colors.white,
     this.shadowColor = Colors.black12,
     this.radius = const BorderRadius.horizontal(
-      right: Radius.circular(10.0),
+      right: Radius.circular(BgConsts.radius),
     ),
   });
 
@@ -31,7 +32,10 @@ class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 20.0,
+        horizontal: BgConsts.hSpace,
+      ),
       decoration: BoxDecoration(
           color: widget.backgroundColor,
           borderRadius: widget.radius,
@@ -54,30 +58,29 @@ class _NavbarState extends State<Navbar> {
             onPressed: navbarStateChanger,
           ),
           const SizedBox(height: 50.0),
-          Container(
-            color: Colors.amber,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Items.navbarItem(
-                  icon: const Icon(Icons.abc),
-                  lable: 'lable',
-                  navbarOpen: _open,
-                  onPressed: () {},
-                  expandedWidth: widget.expandedWidth,
-                  collapsedWidth: widget.collapsedWidth,
-                ),
-                const SizedBox(height: 25.0),
-                Items.navbarItem(
-                  icon: const Icon(Icons.abc),
-                  lable: 'lable',
-                  navbarOpen: _open,
-                  onPressed: () {},
-                  expandedWidth: widget.expandedWidth,
-                  collapsedWidth: widget.collapsedWidth,
-                ),
-              ],
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Items.navbarItem(
+                iconName: 'dashboard',
+                lable: 'Projects',
+                navbarOpen: _open,
+                onPressed: () {
+                  // print('object');
+                },
+                expandedWidth: widget.expandedWidth,
+                collapsedWidth: widget.collapsedWidth,
+              ),
+              const SizedBox(height: BgConsts.hSpace),
+              // Items.navbarItem(
+              //   icon: const Icon(Icons.abc),
+              //   lable: 'lable',
+              //   navbarOpen: _open,
+              //   onPressed: () {},
+              //   expandedWidth: widget.expandedWidth,
+              //   collapsedWidth: widget.collapsedWidth,
+              // ),
+            ],
           ),
         ],
       ),

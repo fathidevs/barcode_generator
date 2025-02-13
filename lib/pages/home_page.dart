@@ -14,12 +14,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
+    // final width = MediaQuery.sizeOf(context).width;
 
     return Scaffold(
       body: Row(
         children: [
-          Navbar(collapsedWidth: 60.0, expandedWidth: width * .15),
+          const Navbar(collapsedWidth: 60.0, expandedWidth: 150.0),
           Expanded(
               child: GeneratorBodyWidget(
             barcodType: Barcode.fromType(BarcodeType.CodeEAN13),
