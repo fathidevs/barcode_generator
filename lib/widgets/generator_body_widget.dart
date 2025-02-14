@@ -1,7 +1,7 @@
 import 'package:barcode/barcode.dart';
 import 'package:flutter/material.dart';
 
-import 'ean13_generator_widget.dart';
+import 'generators/ean13_generator_widget.dart';
 
 class GeneratorBodyWidget extends StatefulWidget {
   final Barcode barcodType;

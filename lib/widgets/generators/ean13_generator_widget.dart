@@ -2,12 +2,12 @@ import 'package:barcode/barcode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../tools/bg_consts.dart';
-import '../tools/checksum.dart';
-import '../tools/copy_svg_data.dart';
-import '../tools/svg_downloader.dart';
-import 'buttons.dart';
-import 'text_fields.dart';
+import '../../tools/bg_consts.dart';
+import '../../tools/checksum.dart';
+import '../../tools/copy_svg_data.dart';
+import '../../tools/svg_downloader.dart';
+import '../buttons.dart';
+import '../text_fields.dart';
 
 class Ean13GeneratorWidget extends StatefulWidget {
   final Barcode barcodType;

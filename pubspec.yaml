@@ -69,6 +69,7 @@ flutter:
     - assets/icons/copy.svg
     - assets/icons/download.svg
     - assets/icons/dashboard.svg
+    - assets/icons/home.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

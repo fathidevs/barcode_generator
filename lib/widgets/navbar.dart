@@ -5,16 +5,20 @@ import 'buttons.dart';
 import 'items.dart';
 
 class Navbar extends StatefulWidget {
+  final int activePagePosition;
   final double expandedWidth;
   final double collapsedWidth;
   final Color backgroundColor;
   final Color shadowColor;
   final BorderRadius radius;
+  final List<VoidCallback> pageJumpList;
 
   const Navbar({
     super.key,
+    required this.activePagePosition,
     required this.expandedWidth,
     required this.collapsedWidth,
+    required this.pageJumpList,
     this.backgroundColor = Colors.white,
     this.shadowColor = Colors.black12,
     this.radius = const BorderRadius.horizontal(
@@ -61,25 +65,26 @@ class _NavbarState extends State<Navbar> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Items.navbarItem(
+              Items.navbar(
+                iconName: 'home',
+                lable: 'Home',
+                navbarOpen: _open,
+                onPressed: widget.pageJumpList[0],
+                expandedWidth: widget.expandedWidth,
+                collapsedWidth: widget.collapsedWidth,
+                elevation: _elevation(0),
+              ),
+              const SizedBox(height: BgConsts.hSpace * 1.5),
+              Items.navbar(
                 iconName: 'dashboard',
                 lable: 'Projects',
                 navbarOpen: _open,
-                onPressed: () {
-                  // print('object');
-                },
+                onPressed: widget.pageJumpList[1],
                 expandedWidth: widget.expandedWidth,
                 collapsedWidth: widget.collapsedWidth,
+                elevation: _elevation(1),
               ),
               const SizedBox(height: BgConsts.hSpace),
-              // Items.navbarItem(
-              //   icon: const Icon(Icons.abc),
-              //   lable: 'lable',
-              //   navbarOpen: _open,
-              //   onPressed: () {},
-              //   expandedWidth: widget.expandedWidth,
-              //   collapsedWidth: widget.collapsedWidth,
-              // ),
             ],
           ),
         ],
@@ -88,4 +93,7 @@ class _NavbarState extends State<Navbar> {
   }
 
   void navbarStateChanger() => setState(() => _open = !_open);
+  double _elevation(int activePagePosition) {
+    return widget.activePagePosition == activePagePosition ? 1.0 : 5.0;
+  }
 }
